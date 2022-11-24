@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TestSerice} from "./test.service";
 
 @Component({
   selector: 'app-test',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-
-  constructor() { }
+  tests;
+  constructor(service: TestSerice) { // creating a dependency === instead of writing let service = new TestSerice();
+    this.tests = service.getTests();
+  }
 
   ngOnInit(): void {
   }

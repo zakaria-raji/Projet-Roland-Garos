@@ -1,1 +1,96 @@
-<p>matche works!</p>
+<div class="y-padding ">
+  <h2 class="gray-block-title">Matche</h2>
+  <div class="gray-block">
+    <div class="row mt-5">
+      <div  id="team_one" class="col">
+        <!-- avatar -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+          <g id="Group_110" data-name="Group 110" transform="translate(-713 -247)">
+            <g class="avatar" data-name="Rectangle 169" transform="translate(713 247)" fill="#d35220" stroke="#707070" stroke-width="1">
+              <rect width="100" height="100" rx="8" stroke="none"/>
+              <rect x="0.5" y="0.5" width="99" height="99" rx="7.5" fill="none"/>
+            </g>
+            <path id="ic_account_circle_24px" d="M37.938,2A35.938,35.938,0,1,0,73.876,37.938,35.951,35.951,0,0,0,37.938,2Zm0,10.781A10.781,10.781,0,1,1,27.157,23.563,10.767,10.767,0,0,1,37.938,12.781Zm0,51.032A25.877,25.877,0,0,1,16.375,52.241c.108-7.152,14.375-11.069,21.563-11.069,7.152,0,21.455,3.917,21.563,11.069A25.877,25.877,0,0,1,37.938,63.813Z" transform="translate(725.062 259.062)" fill="#fff"/>
+          </g>
+        </svg>
+        <div class="info">
+          <p class="pt-cursor" *ngFor="let player of teams.team1" >
+             <span (click)="clickHandler(player.id)">
+            {{player.name}} {{player.firstname}} #{{player.id}}
+             </span>
+          </p>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="match-info">
+          <p>{{matche.date}}</p>
+          <p class="score">{{matche.score}}</p>
+          <p class="state">{{matche.score != '' ? 'Termine':'Venir'}}</p>
+        </div>
+      </div>
+      <div  id="team_two" class="col">
+        <!-- avatar -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+          <g id="Group_110" data-name="Group 110" transform="translate(-713 -247)">
+            <g class="avatar" data-name="Rectangle 169" transform="translate(713 247)" fill="#d35220" stroke="#707070" stroke-width="1">
+              <rect width="100" height="100" rx="8" stroke="none"/>
+              <rect x="0.5" y="0.5" width="99" height="99" rx="7.5" fill="none"/>
+            </g>
+            <path id="ic_account_circle_24px" d="M37.938,2A35.938,35.938,0,1,0,73.876,37.938,35.951,35.951,0,0,0,37.938,2Zm0,10.781A10.781,10.781,0,1,1,27.157,23.563,10.767,10.767,0,0,1,37.938,12.781Zm0,51.032A25.877,25.877,0,0,1,16.375,52.241c.108-7.152,14.375-11.069,21.563-11.069,7.152,0,21.455,3.917,21.563,11.069A25.877,25.877,0,0,1,37.938,63.813Z" transform="translate(725.062 259.062)" fill="#fff"/>
+          </g>
+        </svg>
+        <div class="info">
+          <p class="pt-cursor"  *ngFor="let player of  teams.team2" >
+            <span (click)="clickHandler(player.id)">
+            {{player.name}} {{player.firstname}} #{{player.id}}
+             </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="match-info col-12 col-md-5 mx-auto">
+        <p class="state">Score</p>
+        <table class="table table-borderless text-start ">
+          <tbody>
+          <tr>
+            <th scope="row">
+              <p class="pt-cursor" *ngFor="let player of  teams.team1" >
+                <span (click)="clickHandler(player.id)">
+                {{player.name}} {{player.firstname}} #{{player.id}}
+                  </span><br>
+              </p>
+            </th>
+            <td>
+              <span class=" set-score">4</span>
+              <span class=" set-score">5</span>
+              <span class=" set-score">4</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <p class="pt-cursor" *ngFor="let player of  teams.team2" >
+                   <span (click)="clickHandler(player.id)">
+                {{player.name}} {{player.firstname}} #{{player.id}}
+                  </span><br>
+              </p>
+            </th>
+            <td>
+              <span class=" set-score">4</span>
+              <span class=" set-score">5</span>
+              <span class=" set-score">4</span>
+            </td>
+          </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

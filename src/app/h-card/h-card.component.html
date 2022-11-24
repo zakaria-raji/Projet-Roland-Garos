@@ -1,1 +1,32 @@
-<p>h-card works!</p>
+<div class="row" >
+  <div  class="col-md-4" *ngFor="let matche of matches; let index = index; let isFirst = first; let isOdd = odd;">
+  <div (click)="clickHandler(matche.id,index)"  class="d-flex flex-row h-card {{matche.score != '' ? 'secondary':'primary'}} ">
+    <div class="p-0 w-30 h-card-left-block d-flex flex-column justify-content-center align-items-center ">
+      <p class="h-card-number">{{ day(matche.date) }}</p>
+      <p class="h-card-month">{{month(matche.date)}}</p>
+    </div>
+    <div class="pl-3 pt-2 pr-2 pb-2 w-60 text-start ps-4 h-card-right-block">
+      <div class="h-card-tag">
+        {{matche.score != '' ? 'Termine':'Venir'}}
+      </div>
+      <p>ID : #{{matche.id}}</p>
+      <p>{{matche.type ? "simple" : "double"}} {{matche.gender == "man" ? "Messieurs" : "Dames"}}</p>
+      <div class="list">
+        <p>
+          <img src="assets/icons/person.svg" alt="">
+          <span class="">V. Jimenez Kasintseva</span>
+        </p>
+        <p>
+          <img src="assets/icons/person.svg" alt="">
+          <span class="">V. Jimenez Kasintseva</span>
+        </p>
+        <p>
+          <img src="assets/icons/person.svg" alt="">
+          <span class="">V. Jimenez Kasintseva</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

@@ -1,1 +1,21 @@
-<p>tournoi works!</p>
+<div class="y-padding ">
+  <h2 class="gray-block-title">Tournoi</h2>
+  <div class="gray-block">
+    <!-- Content -->
+    <!-- component filter  -->
+    <div class="search-filter">
+      <input (click)="filtering('all')" type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked><label class="btn btn-outline-success" for="success-outlined">All</label><input  (click)="filtering('termine')"  type="radio" class="btn-check" name="options-outlined" id="success-outlined2" autocomplete="off"  ><label class="btn btn-outline-success" for="success-outlined2">Terminé</label><input  (click)="filtering('venir')"  type="radio" class="btn-check" name="options-outlined" id="success-outlined3" autocomplete="off"  ><label class="btn btn-outline-success" for="success-outlined3">Venir</label>
+    </div>
+
+    <div class="container w-100">
+
+        {{criteria}}
+          <app-h-card [criteria]="criteria" class="row mb-3 pt-cursor"></app-h-card>
+
+    </div>
+
+
+
+  </div>
+
+</div>
