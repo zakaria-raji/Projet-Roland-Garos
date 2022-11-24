@@ -22,20 +22,20 @@ export class PLayersService{
     }),
   };
 
-  // GET
-  getPlayersOrderByName() {
-
-    console.log("before calling getPlayersOrderByName")
-     let result = this.http
-      .get(URL_API + 'player/all').subscribe( response =>{
-         console.log(response )
-       })
-    return
-  }
+  // // GET
+  // getPlayersOrderByName() {
+  //
+  //   console.log("before calling getPlayersOrderByName")
+  //    let result = this.http
+  //     .get(URL_API + 'player/all').subscribe( response =>{
+  //        console.log(response )
+  //      })
+  //   return
+  // }
 
 
   //get all Joueurs with criteria --> nom classement - sexe
-  getPlayersOrderByName1() {
+  getPlayersOrderByName() {
     return [
       {
         'id': 1,

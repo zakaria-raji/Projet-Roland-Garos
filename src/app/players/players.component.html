@@ -1,0 +1,41 @@
+<div class="y-padding ">
+  <h2 class="gray-block-title">{{pa[pageIndex]}}</h2>
+  <div class="gray-block">
+    <!-- Content -->
+    <!-- component filter  -->
+
+<!--    Todo_ZKR:there must be a better way to display filter or hide it -->
+<!--   pageIndex< page length  -->
+    <div class="search-filter {{ (pageIndex==0) ? 'd-block' : 'd-none'}}">
+      <input (click)="filter('nom')" type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked><label class="btn btn-outline-success" for="success-outlined">Nom</label><input  (click)="filter('classement')"  type="radio" class="btn-check" name="options-outlined" id="success-outlined2" autocomplete="off"  ><label class="btn btn-outline-success" for="success-outlined2">Classement</label><input  (click)="filter('sexe')"  type="radio" class="btn-check" name="options-outlined" id="success-outlined3" autocomplete="off"  ><label class="btn btn-outline-success" for="success-outlined3">Sexe</label>
+    </div>
+
+    <div class="container w-100">
+      <div class="row mb-3">
+        <div  *ngFor="let player of players; let index = index; let isFirst = first; let isOdd = odd;"  class="col-md-4 pt-cursor">
+          <div   (click)="showPlayer(player.id)" class="d-flex flex-row h-card primary ">
+            <div class="p-0 w-30 h-card-left-block d-flex flex-column justify-content-center align-items-center ">
+              <img src="./assets/icons/avatar.svg" alt="">
+            </div>
+            <div class="pl-3 pt-2 pr-2 pb-2 w-60 text-start ps-4 h-card-right-block">
+              <p>ID : {{player.id}}</p>
+              <p>{{player.name}}</p>
+              <p>{{player.firstname}}</p>
+              <p>{{player.nationality}}</p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</div>
