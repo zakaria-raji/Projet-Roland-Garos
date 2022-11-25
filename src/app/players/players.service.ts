@@ -1,6 +1,8 @@
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {Observable} from "rxjs";
+import {C_Player} from "../player/C_Player";
 
 
 const URL_API = environment.AUTH_API;
@@ -17,25 +19,21 @@ export class PLayersService{
   // Http Headers
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': 'application/json'
     }),
   };
 
-  // // GET
-  // getPlayersOrderByName() {
-  //
-  //   console.log("before calling getPlayersOrderByName")
-  //    let result = this.http
-  //     .get(URL_API + 'player/all').subscribe( response =>{
-  //        console.log(response )
-  //      })
-  //   return
-  // }
+  // GET
+  getPlayersOrderByName(): Observable<[]> {
+
+    console.log("before calling getPlayersOrderByName")
+    return this.http
+      .get<[]>(URL_API + 'player/all')
+  }
 
 
   //get all Joueurs with criteria --> nom classement - sexe
-  getPlayersOrderByName() {
+  getPlayersOrderByName2() {
     return [
       {
         'id': 1,
@@ -96,6 +94,20 @@ export class PLayersService{
         'bestRank': 8,
       }
     ]
+  }
+
+  // GET
+  getPlayersMen(): Observable<[]> {
+
+    //TODO : api must replace allByPlayTimeMen with allByPlayTimeWomen beccause allByPlayTimeMen is getting  Women not Men
+    return this.http
+      .get<[]>(URL_API + 'player/allByPlayTimeWomen')
+  }
+  // GET
+  getPlayersWomen(): Observable<[]> {
+
+    return this.http
+      .get<[]>(URL_API + 'player/allByPlayTimeMen')
   }
 
   getPlayersOrderByGender() {

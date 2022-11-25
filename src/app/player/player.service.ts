@@ -1,30 +1,32 @@
+import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
+import {Injectable} from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
+const URL_API = environment.AUTH_API;
+@Injectable()
+
+export class PlayerService{
 
 
-export class PLayerService{
-  getPlayer(id:number) {
-    return (
-      {
-        'id': 1,
-        'name': 'J.',
-        'firstname': 'Kasintseva',
-        'gender': 'Homme',
-        'birthdate': '12/02/1990',
-        'birthplace': 'El Palmar, Murcia, Espagne',
-        'nationality': 'espagnole',
-        'domHand': 'Droite',
-        'beginningCareer': '1999',
-        'playTime': 12,
-        'height': '1.82 m',
-        'weight': 75,
-        'wonMatches': 12,
-        'lostMatches': 1,
-        'currentRank': 15,
-        'bestRank': 8,
-      }
-    )
+  // Base url
+  constructor(private http: HttpClient) {}
+
+
+  // Http Headers
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+  };
+
+  getPlayerByID(id:any){
+    console.log("before calling getPlayersOrderByNam "+id)
+    return this.http
+      .get(URL_API + 'player/find/'+id);
   }
+
 
 
 

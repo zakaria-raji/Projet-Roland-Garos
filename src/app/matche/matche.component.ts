@@ -12,6 +12,7 @@ export class MatcheComponent implements OnInit {
   private _matche: any;
   router;
   aRoute;
+  service;
 
   get matche(): any {
     return this._matche;
@@ -22,14 +23,22 @@ export class MatcheComponent implements OnInit {
     this._matche = matche;
   }
 
-  private _teams: any;
-  get teams() {
-    return this._teams;
+  private _player1: any;
+  get player1() {
+    return this._player1;
   }
 
-  @Input('team1')
-  set teams(teams) {
-    this._teams = teams;
+  set player1(player) {
+    this._player1 = player;
+  }
+
+  private _player2: any;
+  get player2() {
+    return this._player2;
+  }
+
+  set player2(player) {
+    this._player2 = player;
   }
 
 
@@ -37,17 +46,22 @@ export class MatcheComponent implements OnInit {
   constructor( service: MatchesService, private rt : ActivatedRoute, private rtt : Router) {
     this.aRoute = rt;
     this.router = rtt;
-    this.aRoute.params.subscribe((params) =>
-    {
-      this.matche = params;
-      this.teams = service.getMatchePlayers(this.matche.id);
-    });
+    this.service = service;
 
 
   }
 
   ngOnInit(): void {
-
+    this.aRoute.params.subscribe((params) =>
+    {
+      this.matche = params;
+      this.service.getPlayerByID(this.matche.player1).subscribe(res=>{
+        this.player1 = res;
+      });
+      this.service.getPlayerByID(this.matche.player2).subscribe(res=>{
+        this.player2 = res;
+      });
+    });
   }
 
 

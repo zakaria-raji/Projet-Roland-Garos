@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PLayerService} from "./player.service";
+import {PlayerService} from "./player.service";
 import {MatchesService} from "../h-card/h-card.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import * as moment from "moment/moment";
@@ -11,17 +11,19 @@ import * as moment from "moment/moment";
 })
 export class PlayerComponent implements OnInit {
   id:any;
-  player;
+  player:any;
   age;
   aRoute;
-  constructor(service: PLayerService , private rt : ActivatedRoute) {
+  constructor(service: PlayerService , private rt : ActivatedRoute) {
   this.aRoute = rt;
   this.aRoute.params.subscribe((params) =>
 {
-  this.id = params;
+  this.id = params['id'];
 })
 
-    this.player = service.getPlayer(this.id);
+    service.getPlayerByID(this.id).subscribe(res=>{
+      this.player = res;
+    });
   this.age= this.CalculateAge();
 console.log(this.player);
   }
@@ -33,7 +35,7 @@ console.log(this.player);
 
   public CalculateAge()
   {
-    if(this.player.birthdate){
+    if(this.player?.birthdate){
       let days = moment().diff(this.player.birthdate, 'days');
       return days/365;
     }else{//error case

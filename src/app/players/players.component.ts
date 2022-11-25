@@ -47,8 +47,16 @@ export class PlayersComponent implements OnInit {
         this.players = service.getPlayersOrderByGameDuration();//Default
         break;
       default:
-        this.players = service.getPlayersOrderByName();//Default
+        service.getPlayersOrderByName().subscribe( response =>{
+
+          this.players = response;
+
+          for(let i=0; i<this.players.length;i++){
+            console.log(this.players[i].id)
+          }
+        });//Default
     }
+
 
   }
 
@@ -56,15 +64,29 @@ export class PlayersComponent implements OnInit {
   filter(criteria:string){
     switch(criteria){
       case "nom":
-        this.players = this.service.getPlayersOrderByName();//Default
+        this.service.getPlayersOrderByName().subscribe(res=>{
+          this.players = res;
+        })
         break;
 
       case "classement" :
-        this.players = this.service.getPlayersOrderByRank();//Default
+        this.service.getPlayersOrderByName().subscribe(res=>{
+          let sortedPplayer = res.sort(
+            (p1, p2) => (p1['rank'] < p2['rank'] ) ? 1 : (p1['rank']  > p2['rank'] ) ? -1 : 0);
+          this.players = sortedPplayer;
+        });//Default
         break;
 
-      case "sexe" :
-        this.players = this.service.getPlayersOrderByGender();//Default
+      case "men" :
+        this.service.getPlayersMen().subscribe(res=>{
+          this.players = res;
+        })
+        break;
+
+      case "women" :
+        this.service.getPlayersWomen().subscribe(res=>{
+          this.players = res;
+        })
         break;
 
     }

@@ -7,10 +7,13 @@ import {MatchesService} from "../h-card/h-card.service";
   styleUrls: ['./tournoi.component.css'],
 })
 export class TournoiComponent implements OnInit {
+  // @ts-ignore
   matches;
   criteria;
   constructor(service: MatchesService) {
-    this.matches = service.getMatches();
+    service.getAllMatches().subscribe(resp=>{
+      this.matches = resp;
+    })
     this.criteria="all";
   }
 

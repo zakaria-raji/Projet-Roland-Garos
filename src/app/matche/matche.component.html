@@ -14,9 +14,14 @@
           </g>
         </svg>
         <div class="info">
-          <p class="pt-cursor" *ngFor="let player of teams.team1" >
-             <span (click)="clickHandler(player.id)">
-            {{player.name}} {{player.firstname}} #{{player.id}}
+<!--          <p class="pt-cursor" *ngFor="let player of teams.team1" >-->
+<!--             <span (click)="clickHandler(player.id)">-->
+<!--            {{player.name}} {{player.firstname}} #{{player.id}}-->
+<!--             </span>-->
+<!--          </p>-->
+          <p class="pt-cursor" >
+             <span (click)="clickHandler(matche.player1)">
+            {{player1?.name}} {{player1?.firstname}} #{{player1?.id}}
              </span>
           </p>
 
@@ -41,9 +46,14 @@
           </g>
         </svg>
         <div class="info">
-          <p class="pt-cursor"  *ngFor="let player of  teams.team2" >
-            <span (click)="clickHandler(player.id)">
-            {{player.name}} {{player.firstname}} #{{player.id}}
+<!--          <p class="pt-cursor"  *ngFor="let player of  teams.team2" >-->
+<!--            <span (click)="clickHandler(player.id)">-->
+<!--            {{player.name}} {{player.firstname}} #{{player.id}}-->
+<!--             </span>-->
+<!--          </p>-->
+          <p class="pt-cursor" >
+            <span (click)="clickHandler(matche.player2)">
+            {{player2?.name}} {{player2?.firstname}} #{{player2?.id}}
              </span>
           </p>
         </div>
@@ -56,9 +66,14 @@
           <tbody>
           <tr>
             <th scope="row">
-              <p class="pt-cursor" *ngFor="let player of  teams.team1" >
-                <span (click)="clickHandler(player.id)">
-                {{player.name}} {{player.firstname}} #{{player.id}}
+<!--              <p class="pt-cursor" *ngFor="let player of  teams.team1" >-->
+<!--                <span (click)="clickHandler(player.id)">-->
+<!--                {{player.name}} {{player.firstname}} #{{player.id}}-->
+<!--                  </span><br>-->
+<!--              </p>-->
+              <p class="pt-cursor" >
+                <span (click)="clickHandler(matche.player1)">
+                {{player1?.name}} {{player1?.firstname}} #{{player1?.id}}
                   </span><br>
               </p>
             </th>
@@ -70,9 +85,14 @@
           </tr>
           <tr>
             <th scope="row">
-              <p class="pt-cursor" *ngFor="let player of  teams.team2" >
-                   <span (click)="clickHandler(player.id)">
-                {{player.name}} {{player.firstname}} #{{player.id}}
+<!--              <p class="pt-cursor" *ngFor="let player of  teams.team2" >-->
+<!--                   <span (click)="clickHandler(player.id)">-->
+<!--                {{player.name}} {{player.firstname}} #{{player.id}}-->
+<!--                  </span><br>-->
+<!--              </p>-->
+              <p class="pt-cursor">
+                   <span (click)="clickHandler(matche.player2)">
+                {{player2?.name}} {{player2?.firstname}} #{{player2?.id}}
                   </span><br>
               </p>
             </th>

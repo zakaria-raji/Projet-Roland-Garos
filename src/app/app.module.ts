@@ -15,7 +15,7 @@ import { HeaderCoverComponent } from './header-cover/header-cover.component';
 import {MatchesService} from "./h-card/h-card.service";
 import { MatcheComponent } from './matche/matche.component';
 import { PlayerComponent } from './player/player.component';
-import {PLayerService} from "./player/player.service";
+import {PlayerService} from "./player/player.service";
 import { CgvComponent } from './cgv/cgv.component';
 import { PlayersComponent } from './players/players.component';
 import {PLayersService} from "./players/players.service";
@@ -73,7 +73,7 @@ import {HttpClientModule} from "@angular/common/http";
     // singleton
     TestSerice,
     MatchesService,
-    PLayerService,
+    PlayerService,
     PLayersService
   ],
   bootstrap: [AppComponent]

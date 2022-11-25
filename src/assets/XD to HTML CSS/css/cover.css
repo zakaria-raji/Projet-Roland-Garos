@@ -1,0 +1,55 @@
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+ 
+
+.cover-container {
+  max-width: 1640px;
+}
+
+
+/*
+ * Header
+ */
+
+.nav  .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: var(--zkr-black);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav  .nav-link.active,
+.nav  .nav-link:hover,
+.nav  .nav-link:focus {
+  color: var(--zkr-primary);
+}
+
+.nav .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav .active {
+  color: var(--zkr-primary);
+}
+
+.header-img-bg{   
+  background-position: top; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}

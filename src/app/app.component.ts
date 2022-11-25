@@ -9,7 +9,6 @@ import { Router,NavigationEnd  } from '@angular/router';
 export class AppComponent {
   title = 'RG';
   constructor(private router : Router) {
-    console.log(router.url);
-    console.log(NavigationEnd)
+
   }
 }

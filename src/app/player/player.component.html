@@ -15,15 +15,15 @@
             </g>
           </svg>
           <div class="info">
-            <p>{{player.name +" "+player.firstname}}</p>
-            <p>Nbr #{{player.id}}</p>
+            <p>{{player?.name +" "+player?.firstname}}</p>
+            <p>Nbr #{{player?.id}}</p>
             <h5 class="my-4">Informations générales</h5>
             <div class="row">
               <p class="col-6 text-start">
                 Sexe :
               </p>
               <p class="col-6 text-end">
-                {{player.gender}}
+                {{player?.gender}}
               </p>
 
               <p class="col-6 text-start">
@@ -39,7 +39,7 @@
                 Nationalité  :
               </p>
               <p class="col-6 text-end">
-                {{player.nationality}}
+                {{player?.nationality}}
               </p>
 
 
@@ -47,7 +47,7 @@
                 Lieu de Naissance :
               </p>
               <p class="col-6 text-end">
-                {{player.birthplace}}
+                {{player?.birthplace}}
               </p>
 
 
@@ -56,7 +56,7 @@
                 Date de Naissance :
               </p>
               <p class="col-6 text-end">
-                {{player.birthdate}}
+                {{player?.birthdate}}
               </p>
 
 
@@ -65,7 +65,7 @@
                 Taille :
               </p>
               <p class="col-6 text-end">
-                {{player.height}}
+                {{player?.height}}
               </p>
 
 
@@ -74,7 +74,7 @@
                 Poids :
               </p>
               <p class="col-6 text-end">
-                {{player.weight}}
+                {{player?.weight}}
               </p>
             </div>
           </div>
@@ -95,14 +95,14 @@
                     Classement : current / best
                   </p>
                   <p class="col-6 text-end">
-                    {{player.currentRank}} / {{player.bestRank}}
+                    {{player?.currentRank}} / {{player?.bestRank}}
                   </p>
 
                   <p class="col-6 text-start">
                     Victoires-Défaites :
                   </p>
                   <p class="col-6 text-end">
-                    {{player.wonMatches}}/{{player.lostMatches}}
+                    {{player?.wonMatches}}/{{player?.lostMatches}}
                   </p>
 
                   <p class="col-6 text-start">
@@ -117,21 +117,21 @@
                     Main :
                   </p>
                   <p class="col-6 text-end">
-                    {{player.domHand}}
+                    {{player?.domHand}}
                   </p>
 
                   <p class="col-6 text-start">
                     Debut de carriere :
                   </p>
                   <p class="col-6 text-end">
-                    {{player.beginningCareer}}
+                    {{player?.beginningCareer}}
                   </p>
 
                   <p class="col-6 text-start">
                     playTime :
                   </p>
                   <p class="col-6 text-end">
-                    {{player.playTime}}
+                    {{player?.playTime}}
                   </p>
                 </div>
               </div>

@@ -1,0 +1,10 @@
+#dashboard-nav .nav-link.active{
+    color: var(--zkr-white) ;
+    background-color: var(--zkr-primary) ;
+}
+#dashboard-nav .nav-link:hover{
+    color: var(--zkr-white) ;
+    background-color: var(--zkr-primary) ;
+}
+
+ 

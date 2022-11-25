@@ -3,6 +3,7 @@ import {MatchesService} from "./h-card.service";
 import {month} from "../months-constants.module";
 import {MatcheComponent} from "../matche/matche.component";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import * as moment from "moment/moment";
 
 @Component({
   selector: 'app-h-card',
@@ -12,7 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 export class HCardComponent implements OnInit {
-  matches;
+  matches: any[] | null;
   service;
   router;
   private _criteria: string;
@@ -28,9 +29,10 @@ export class HCardComponent implements OnInit {
     this.filter();
   }
   constructor(service: MatchesService, private rt : Router) {
+    this.matches = null;
     this.router = rt;
-    this.matches = service.getMatches();
     this.service = service;
+
     this._criteria = 'all';
     this.filter();
   }
@@ -45,30 +47,55 @@ export class HCardComponent implements OnInit {
         this.matches = this.service.getMatchesVenir();
         break;
       default:
-        this.matches = this.service.getMatches();
+        this.service.getAllMatches().subscribe(resp=>{
+          this.matches = resp;
+        });
     }
   }
 
   day(data:string){
-    let dt = new Date();
-    return dt.getDay();
+    let dt = moment(data,'DD-MM-YYYY');
+    return dt.day();
   }
 
   month(data:string){
-    let dt = new Date();
-    return month[dt.getMonth()];
+    console.log(data)
+    let dt = moment(data,'DD-MM-YYYY');
+    return dt.format("MMM");
   }
 
 
 
   clickHandler(id:number, index:number){
     console.log(id);
-    let matche = this.matches[index];
-    this.router.navigate(['matche',  matche])
+    if(this.matches != null ){
+      let matche = this.matches[index];
+      this.router.navigate(['matche',  matche])
+    }
+
   }
 
+
+  //
+  //
+  // getPlayers(){
+  //  let  lgt = this.matches ==null ? 0:this.matches.length;
+  //   for(let i=0; i< lgt ; i++){
+  //     let ar = []
+  //      // @ts-ignore
+  //     this.service.getPlayerByID(this.matches.player1).subscribe(res=>{
+  //       ar.push(res);
+  //     })
+  //     // @ts-ignore
+  //     this.service.getPlayerByID(this.matches.player2).subscribe(res=>{
+  //       ar.push(res);
+  //     })
+  //
+  //   }
+  //
+  // }
+
   ngOnInit(): void {
-    this.filter();
   }
 
 }
